@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <style>
+        /* Light Mode Styles */
+        body {
+            background-color: #f7f7f7;
+            color: #333;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .dark-mode-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: 2px solid #333;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .dark-mode-button:hover {
+            background-color: #333;
+            border-color: #333;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #333;
+            color: #f7f7f7;
+        }
+
+        .dark-mode-button.dark-mode {
+            border-color: #f7f7f7;
+        }
+
+        .dark-mode-button.dark-mode:hover {
+            background-color: #f7f7f7;
+            border-color: #f7f7f7;
+        }
+
+        /* Smooth Scroll Styles */
+        a[href^="#"] {
+            text-decoration: none;
+        }
+
+        /* Project Styles (customize as needed) */
+        .project {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .project h3 {
+            font-size: 24px;
+        }
+
+        .project p {
+            font-size: 16px;
+        }
+
+        .project img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #333;
+            color: #f7f7f7;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 48px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: #f7f7f7;
+            font-size: 20px;
+            cursor: pointer;
+            margin: 0 20px;
+        }
+
+        /* About Section Styles */
+        .about-section {
+            padding: 40px 0;
+        }
+
+        /* Contact Section Styles */
+        .contact-section {
+            background-color: #333;
+            color: #f7f7f7;
+            padding: 40px 0;
+        }
+
+        .contact-section h2 {
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <button class="dark-mode-button" id="dark-mode-toggle">
+                <img src="sun.png" alt="Light Mode" id="dark-mode-icon" />
+            </button>
+            <h1>Your Name</h1>
+            <p>Your Tagline</p>
+            <nav>
+                <button onclick="scrollToSection('about-section')">About</button>
+                <button onclick="scrollToSection('projects-section')">Projects</button>
+                <button onclick="scrollToSection('contact-section')">Contact</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <hr>
+        <section id="about-section">
+            <h2>About Me</h2>
+            <div class="about-section">
+                <p>Write a brief introduction about yourself here. Mention your skills, interests, and experiences.</p>
+            </div>
+        </section>
+
+        <section id="projects-section">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>Description of Project 1.</p>
+                <img src="project1.jpg" alt="Project 1 Image">
+            </div>
+
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Description of Project 2.</p>
+                <img src="project2.jpg" alt="Project 2 Image">
+            </div>
+
+            <!-- Add more project sections as needed -->
+        </section>
+
+        <section id="contact-section">
+            <div class="contact-section">
+                <h2>Contact Me</h2>
+                <p>You can reach me at your.email@example.com</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // JavaScript for smooth scrolling to sections
+        function scrollToSection(sectionId) {
+            const targetElement = document.getElementById(sectionId);
+
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // JavaScript for dark/light mode toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkModeIcon = document.getElementById('dark-mode-icon');
+        const body = document.body;
+
+        // Check the user's preference for dark mode
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Initialize the mode based on user preference
+        if (prefersDarkMode) {
+            body.classList.add('dark-mode');
+            darkModeIcon.src = 'PICTUREHERE.png';
+        }
+
+        // Toggle dark/light mode
+        darkModeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                darkModeIcon.src = 'PICTUREHERE.png';
+            } else {
+                body.classList.add('PICTUREHERE.png');
+                darkModeIcon.src = 'PICTUREHERE.png';
+            }
+        });
+    </script>
+</body>
+</html>
