@@ -4,4 +4,4 @@ Dont forget to add your own images.
 
 Made this in my freetime, Simple portfolio website with a Light/Dark mode button and smooth scrolling.
 
-[https://portfoliobyjan.pages.dev/ < see it in action.
+https://portfoliobyjan.pages.dev/ < see it in action.
